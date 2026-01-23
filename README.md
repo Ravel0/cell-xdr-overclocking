@@ -34,13 +34,15 @@ The PS3 COK-001 (CECHA) motherboard uses the following clock generation hardware
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│             25 MHz Crystal Oscillator (X5001/X3402)             │
+│             25 MHz Crystal Oscillator (X5001/X3402)             |
+|                             ? (SW)                              │        
 └─────────────────────────────┬───────────────────────────────────┘
                               │
                               ▼
 ┌─────────────────────────────────────────────────────────────────┐
 │               Master Clock Oscillator (IC5001)                  │
-│                   NVS 0x3122 → Register 0                       │
+│                   NVS 0x3122 → Register 0                       |
+|                   NVS ? (SW) → Register 0│                      |
 │              I2C programmable clock synthesizer                 │
 └─────────────────────────────┬───────────────────────────────────┘
                               │
@@ -51,20 +53,22 @@ The PS3 COK-001 (CECHA) motherboard uses the following clock generation hardware
 │ IC5003 - ICS9218AGLFT       │ │ IC5002/5004 - ICS9218AGLFT      │
 │ CELL Clock Generator        │ │ XDR Clock Generator             │
 │ (cell_device_slot: 0x42080) │ │ (xdr_context_id_probable)       │
-│                             │ │                                 │
+│                             │ │                                 |
+| NVS 61 → Register 5 (SW)    | | NVS 63 → Register 5 (SW)        |
+| NVS 62 → Register 6 (SW)    | | NVS 64 → Register 6 (SW)        |
 │ NVS 0x3128 → Register 5     │ │ NVS 0x312C → Register 5         │
 │ NVS 0x3129 → Register 6     │ │ NVS 0x312D → Register 6         │
 │                             │ │                                 │
 │ Output: 400 MHz (stock)     │ │ Output: 400 MHz (stock)         │
 └──────────────┬──────────────┘ └────────────────┬────────────────┘
-               │                                  │
-               ▼                                  ▼
+               │                                 │
+               ▼                                 ▼
 ┌─────────────────────────────┐ ┌─────────────────────────────────┐
-│         CELL BE             │ │          XDR DRAM               │
+│           CELL BE           │ │             XDR DRAM            │
 │   Internal PLL: 8× mult     │ │      Internal PLL: 8× mult      │
 │                             │ │                                 │
-│   400 MHz × 8 = 3.2 GHz     │ │   400 MHz × 8 = 3.2 GHz         │
-│        (stock)              │ │        (stock)                  │
+│   400 MHz × 8 = 3.2 GHz     │ │       400 MHz × 8 = 3.2 GHz     │
+│          (stock)            | │              (stock)            │
 └─────────────────────────────┘ └─────────────────────────────────┘
 ```
 
@@ -77,6 +81,9 @@ Each clock generator has an associated device context structure in syscon memory
 | Master Oscillator | 0x42074 | Reference clock source |
 | IC5003 (CELL) | 0x42080 | CELL reference clock |
 | IC5002/5004 (XDR) | 0x4208C | XDR reference clock |
+| ? (SW) | ? | ? |
+| ? (SW) | ? | ? |
+| ? (SW) | ? | ? |
 
 The device context structure format:
 ```c
@@ -102,6 +109,11 @@ struct device_context {
 | 0x3129 | 1 | IC5003 | 6 | 0x16 | CELL clock generator register 6 |
 | 0x312C | 1 | IC5002/4 | 5 | 0x84 | XDR clock generator register 5 |
 | 0x312D | 1 | IC5002/4 | 6 | 0x16 | XDR clock generator register 6 |
+| ? (SW) | 1 | Master Osc | ? | ? | ? |
+| 61 (SW) | 1 | ? | 5 | 0x84 | CELL clock generator register 5 |
+| 62 (SW) | 1 | ? | 6 | 0x16 | CELL clock generator register 6 |
+| 63 (SW) | 1 | ? | 5 | 0x84 | XDR clock generator register 5 |
+| 64 (SW) | 1 | ? | 6 | 0x16 | XDR clock generator register 6 |
 
 ### Default Value Behavior
 
