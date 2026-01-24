@@ -642,6 +642,6 @@ Boot Phase "0x400" (System Running)
 - [villahed94](https://www.youtube.com/@villahed94/) - Attempting different values for the CELL clock generator registers
 - [Sampsonay](https://www.youtube.com/@Sampsonay/) - Attempting different values for the CELL clock generator registers
 - gypsy - Attempting different values for the CELL clock generator registers
-- rgbeter - Attempting different values for the CELL clock generator registers
-- [sage](https://codeberg.org/derg/) - This document, extensive reverse engineering of the syscon firmware
+- [RGBeter](https://x.com/RGBeter32X) - Attempting different values for the CELL clock generator registers
+- [sage](https://codeberg.org/derg/) - This document and extensive reverse engineering of the syscon firmware
 ---
