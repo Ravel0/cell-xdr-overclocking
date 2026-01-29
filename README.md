@@ -98,7 +98,7 @@ struct device_context {
 ## NVS Memory Map
 
 ### Clock Configuration Offsets
-
+(Mullion)
 | NVS Offset | Size | Device | Register | Default | Description |
 |------------|------|--------|----------|---------|-------------|
 | 0x3122 | 1 | Master Osc | 0 | 0x20 | Master oscillator config (bits 6-4 select frequency) |
@@ -106,6 +106,14 @@ struct device_context {
 | 0x3129 | 1 | IC5003 | 6 | 0x16 | CELL clock generator register 6 |
 | 0x312C | 1 | IC5002/4 | 5 | 0x84 | XDR clock generator register 5 |
 | 0x312D | 1 | IC5002/4 | 6 | 0x16 | XDR clock generator register 6 |
+
+(Sherwood)
+| NVS Offset | Size | Register | Default | Description |
+|------------|------|--------|----------|---------|-------------|
+| 0x61 | 1 | 5 | 0x84 | XDR clock generator register 5 |
+| 0x62 | 1 | 6 | 0x16 | XDR clock generator register 6 |
+| 0x63 | 1 | 5 | 0x84 | CELL clock generator register 5 |
+| 0x64 | 1 | 6 | 0x16 | CELL clock generator register 6 |
 
 ### Default Value Behavior
 
