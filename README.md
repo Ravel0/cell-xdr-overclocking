@@ -579,14 +579,47 @@ The syscon contains code for sending custom PLL configuration directly to CELL v
 
 **Why it fails on retail:**
 ```c
-result = nvs_read(0x3958, v10, 1);
-if (v10[0] != 0xFF) {
-    v1 = sub_2ADFA(v13);  // Wait for CELL attention - TIMES OUT
-    if (v1) {
-        log_printf("[POWERSEQ] Error : wait attention timeout.(%s)\n", "Psbd_SetBePll");
-        return v1;
+int sub_2CEA4()
+{
+    // read enable flag from nvs 0x3958
+    nvs_read(14680, v10, 1);
+    
+    if (v10[0] != 0xFF)  // custom pll enabled
+    {
+        // now wait for cell attention signal
+        v1 = sub_2ADFA(v13);  // < fails here.
+        if (v1)
+        {
+            log_printf("[POWERSEQ] Error : wait attention timeout.(%s)\n", "Psbd_SetBePll");
+            return v1;
+        }
+        
+        // read 8 bytes of pll config from nvs 0x3950
+        nvs_read(14672, v10, 8);
+        
+        // default if empty
+        if (v10[0] == 0xFF)
+        {
+            // stock 400MHz values: 71 67 06 81 6A 4C 00 00
+            qmemcpy(v10, "qg", 2);  // 0x71, 0x67
+            v10[2] = 0x06;
+            v10[3] = 0x81;
+            strcpy(v11, "jL");      // 0x6A, 0x4C
+            v11[3] = 0;
+        }
+        
+        // bit interleave 8 bytes -> 9 bytes, some obfuscation bs
+        // ... transformation loop ...
+        
+        // send to cell via spi command
+        sub_2AB80(v13, 32, v9, 9);
+        
+        // trigger update
+        v12[0] = 0;
+        v12[1] = 0x8000000;
+        sub_2AC08(v13, 0, v12);
     }
-    // ... send PLL config
+    return 0;
 }
 ```
 
